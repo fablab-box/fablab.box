@@ -16,11 +16,12 @@ export type Project = {
 const getStyle = (
   i: number,
   total: number,
-  color?: string
+  color?: string,
+  isMobile?: boolean
 ): React.CSSProperties => {
-  const duration = 70,
-    radius = 420,
-    delay = -(duration / total) * i;
+  const duration = isMobile ? 90 : 70;
+  const radius   = isMobile ? 180 : 420;            // <<< compact mobile
+  const delay    = -(duration / total) * i;
   return {
     ["--orbit-radius" as any]: `${radius}px`,
     animationDelay: `${delay}s`,
@@ -201,7 +202,7 @@ export default function ProjectsWithCard({
             key={p.id}
             data-role="project"
             className={`${styles.project} cursor-target`}
-            style={getStyle(i, projects.length, p.color)}
+            style={getStyle(i, projects.length, p.color, isMobile)}
             onMouseEnter={(e) => {
               if (isMobile) return;
               cancelHide();

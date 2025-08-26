@@ -33,12 +33,6 @@
   background-image: url("../Backgrounds/dark_galaxy.svg");
 }
 
-@media (max-width: 640px) {
-  .galaxyBg {
-    background-size: 250%;
-  }
-}
-
 .centralCircle {
   position: absolute;
   top: 50%;
@@ -333,4 +327,50 @@
   .contributor, .project { animation: none !important; }
   .centralCircle::after { animation: none !important; }
   .dotbox, .contributor, .project { transition: none !important; }
+}
+
+@media (max-width: 640px) {
+
+  .galaxyWrapper {
+    height: auto;
+    margin: auto;
+  }
+  .galaxyBg {
+    background-size: 100%;
+    animation-duration: 240s;
+  }
+
+  .centralCircle {
+    width: 140px;
+    height: 140px;
+  }
+  .centralCircle h2 {
+    font-size: 0.9rem;
+  }
+
+  .contributor {
+    width: 14px;
+    height: 14px;
+    font-size: 0.5rem;
+  }
+  .project {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 0.5rem;
+  }
+
+  .dotbox {
+    width: 100px;
+    padding: 0.4rem 0.6rem;
+    min-height: auto;
+  }
+  .dotboxTitle {
+    font-size: 0.85rem;
+    margin: 0;
+    text-align: center;
+  }
+  .dotboxContent {
+    display: none !important;
+  }
 }
